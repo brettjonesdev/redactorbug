@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Redactor get/set bug</title>
+	<link rel="stylesheet" href="redactor.css"></link>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="redactor.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var r = $("#redactor");
+			r.redactor();
+			console.log(r.redactor("get"));
+
+			for (var i =0; i < 10; i++ ) {
+				r.redactor('set', r.redactor("get"));
+				console.log(r.redactor("get"));	
+			}
+		});
+	</script>
+</head>
+<body>
+	<textarea id="redactor">
+		ABC
+	</textarea>
+</body>
+
+</html>
